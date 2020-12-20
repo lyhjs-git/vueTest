@@ -160,7 +160,7 @@ module.exports = () => {
         let regName = mObj.regName;
         let regPasswd = mObj.regPasswd;
         regPasswd = common.md5(regPasswd + common.MD5_SUFFXIE);
-        const insUserInfo = `INSERT INTO user(user_name,login_password,user_number) VALUES('${regName}','${regPasswd}','${regName}')`;
+        const insUserInfo = `INSERT INTO user(user_account,login_password,user_number) VALUES('${regName}','${regPasswd}','${regName}')`;
         delReg(insUserInfo, res);
     });
     /*
@@ -186,7 +186,7 @@ module.exports = () => {
         let username = mObj.loginName;
         let password = common.md5(mObj.loginPawd + common.MD5_SUFFXIE);;
         // console.log(username, mObj.passwd);
-        const selectUser = `SELECT * FROM user where user_name='${username}'`;
+        const selectUser = `SELECT * FROM user where user_account='${username}'`;
         db.query(selectUser, (err, data) => {
             if (err) {
                 console.log(err);
@@ -213,7 +213,7 @@ module.exports = () => {
     });
     route.get('/userinfo', (req, res) => {
         let uId = req.query.uId;
-        const getU = `SELECT user_name,user_number FROM user where user_id='${uId}'`;
+        const getU = `SELECT user_account,user_number FROM user where user_id='${uId}'`;
         db.query(getU, (err, data) => {
             if (err) {
                 console.log(err);
