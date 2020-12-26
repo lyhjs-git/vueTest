@@ -1,12 +1,16 @@
 <template>
   <v-form ref="form" v-model="valid" lazy-validation>
-    <v-text-field v-model="name" :counter="10" :rules="nameRules" label="Name" required></v-text-field>
-
-    <v-text-field v-model="email" :rules="emailRules" label="E-mail" required></v-text-field>
+    <v-text-field v-model="employeeId" :counter="10" :rules="nameRules" label="社員ID" required></v-text-field>
+    <v-text-field v-model="name" :counter="10" :rules="nameRules" label="名前" required></v-text-field>
+    <v-text-field v-model="frigana" :counter="10" :rules="nameRules" label="フリガナ" required></v-text-field>
+    <v-text-field v-model="enteringDate" :counter="10" :rules="nameRules" label="入社年月日" required></v-text-field>
+    <v-text-field v-model="certificationName" :counter="10" :rules="nameRules" label="資格" required></v-text-field>
+    <v-text-field v-model="getDate" :counter="10" :rules="nameRules" label="取得日付" required></v-text-field>
+    <v-text-field v-model="encourageDate" :rules="emailRules" label="奨励金日付" required></v-text-field>
 
     <v-select
       v-model="select"
-      :items="items"
+      :items="items"D
       :rules="[v => !!v || 'Item is required']"
       label="Item"
       required
