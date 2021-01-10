@@ -83,23 +83,17 @@
         this.$emit('handleSwitch','input', this.editedItem)
       },
 
-      /*deleteItem (item) {
+      deleteItem (item) {
         this.editedIndex = this.desserts.indexOf(item)
         this.editedItem = Object.assign({}, item)
         this.dialogDelete = true
-      },*/
-	  
-	  deleteItem (item) {
-        let _this = this;
-	    //_this.editedIndex = this.desserts.indexOf(item);
-        //_this.editedItem = Object.assign({}, item);
-		_this.dialogDelete = true
-  
-          _this.$http.post('/deleteEmployeeCertification',item).then((res)=>{
+      },
+
+      deleteItemConfirm () {
+		 this.$http.post('/deleteEmployeeCertification',this.editedItem).then((res)=>{
             if(res.status == 200){
-              _this.regInfo = res.data;
-              if(_this.regInfo.status == 1){
-                  // alert('提出成功しました。');
+              this.regInfo = res.data;
+              if(this.regInfo.status == 1){
                   this.$emit('handleSwitch','search')
               }else{
                   alert('删除失敗しました。');
@@ -112,9 +106,6 @@
                 alert('APIエラーが発生しました。');
                 console.log(err);
             });
-      },
-
-      deleteItemConfirm () {
         this.desserts.splice(this.editedIndex, 1)
         this.closeDelete()
       },
