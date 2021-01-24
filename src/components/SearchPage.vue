@@ -33,8 +33,8 @@
             <v-card-title class="headline">削除しますか?</v-card-title>
             <v-card-actions>
               <v-spacer></v-spacer>
-              <v-btn color="blue darken-1" text @click="closeDelete">いいえ</v-btn>
               <v-btn color="blue darken-1" text @click="deleteItemConfirm">はい</v-btn>
+			  <v-btn color="blue darken-1" text @click="closeDelete">いいえ</v-btn>
               <v-spacer></v-spacer>
             </v-card-actions>
           </v-card>

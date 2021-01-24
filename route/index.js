@@ -259,7 +259,7 @@ module.exports = () => {
     });
     route.get('/employeeCertifications', (req, res) => {
         const getEmployee = "SELECT e.employee_id ,e.name,frigana ,DATE_FORMAT( e.entering_date , '%Y/%m/%d' ) entering_date,"
-        + " c.certification_id, c.certification_name, DATE_FORMAT( c.get_date , '%Y/%m/%d' ) get_date,  DATE_FORMAT( c.encourage_date , '%Y/%m/%d' ) encourage_date"
+        + " c.certification_id, c.certification_name, DATE_FORMAT( c.get_date , '%Y-%m-%d' ) get_date,  DATE_FORMAT( c.encourage_date , '%Y-%m-%d' ) encourage_date"
         + " from employee e,employee_certification c where e.employee_id = c.employee_id ";
         db.query(getEmployee, (err, data) => {
             if (err) {
